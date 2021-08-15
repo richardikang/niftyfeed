@@ -1,17 +1,33 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+const functions = require("firebase-functions");
+const express = require('express');
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const puppeteer = require('puppeteer');
+// var connect = require('connect');
+// var serveStatic = require('serve-static'); 
+// var app = connect(); 
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// app.use(serveStatic('../angularjs')); 
+
+// app.listen(5000);
+const app = express();
+
+app.get('/', (req, res) => {
+async function nft(url) {
+const browser = await puppeteer.launch({args:['--no-sandbox',], headless: false});
+const page = await browser.newPage();
+await page.goto(url);
+
+const [el] = await page.$x('//*[@id="__next"]');
+const src = await el.getProperty('src');
+const srcTxt = await src.jsonValue();
+
+const[el2] = await page.$x('//*[@id="__next"]');
+const txt = await el2.getProperty('textContent');
+const rawTxt = await txt.jsonValue();
+
+console.log({srcTxt, rawTxt});   
+
+browser.close();
+Nft('https://foundation.app/');
+}
+});
