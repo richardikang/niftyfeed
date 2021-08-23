@@ -11,7 +11,9 @@ const puppeteer = require('puppeteer');
 // app.listen(5000);
 const app = express();
 
-app.get('/', (req, res) => {
+app.get('/ ', (req, res) => {
+    res.render('index.js')
+});
 async function nft(url) {
 const browser = await puppeteer.launch({args:['--no-sandbox',], headless: false});
 const page = await browser.newPage();
@@ -30,4 +32,3 @@ console.log({srcTxt, rawTxt});
 browser.close();
 Nft('https://foundation.app/');
 }
-});
