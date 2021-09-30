@@ -1,42 +1,29 @@
-import React, { Component } from 'react';
+
+import React from 'react'
+import Home from './HomeComponent';
+import About from './AuthenticationComponent'
+// import Contact from './ContactComponent'
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
-import Home from './HomeComponent';
-import Contact from './ContactComponent';
-import About from './AboutComponent';
-
-const mapStateToProps = state => {
-    return {
-        comments: state.comments,
-        favorites: state.favorites
-    };
-};
-
-class Main extends Component {
-
-    render() {
-        
-        const HomePage = () => {
-            return (
-                <Home />
-            )
-        }
-    }
-        
- }
-
- return (
-    <div>
-        <Header component={Header}/>
-                    <Switch>
-                        <Route path='/home' component={HomePage} />
-                         <Route exact path='/contactus' render={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} postFeedback={this.props.postFeedback} /> } component={Contact} />
-                        <Route exact path='/aboutus' component={About} />
-                        <Redirect to='/home' />
-                    </Switch>
-        <Footer component={Footer}/>
-    </div>
-);
+import Dashboard from './Dashboard';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));
+function Main() {
+
+    return (
+        <div>
+            <Header />
+               <Switch>
+                    <Route path='/home' component={Home} />
+                    <Route path='/dashboard'><Dashboard/></Route>
+                    {/* <Route exact path='/contact' render={() => <Contact  /> } /> */}
+                    <Route exact path='/about' render={() => <About /> } />
+                    <Redirect to='/home' />
+                </Switch>     
+            <Footer />
+        </div>
+    )
+}
+
+export default Main
