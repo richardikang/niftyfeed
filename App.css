@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap');
+
 .App {
   text-align: center;
 }
@@ -14,7 +16,6 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -22,6 +23,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  list-style-type: none;
 }
 
 .App-link {
@@ -35,4 +37,368 @@
   to {
     transform: rotate(360deg);
   }
+}
+body {
+  margin: 0;
+}
+
+.slider {
+  position: relative;
+  height: 80vh;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: .3s ease;
+}
+
+/* .slide h1, .slide h2 {
+  color: #fff;
+  text-shadow: 2px 2px 1px #000;
+}
+
+.slide.selected {
+  opacity: 1;
+  transition-duration: .2s;
+} */
+
+.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.modalClass {
+  text-align: center;
+  margin-top: 100;
+}
+
+li {
+  list-style-type: none;
+}
+.RegistrationBtn {
+  margin: 0px 30px 25px 40px
+}
+
+.demo-header {
+  margin-left: 100px;
+}
+
+.Demo {
+  display: flex;
+  margin: 0px 0px 20px 395px;
+  position: relative;
+}
+
+.Demo-Background {
+  background-color: black;
+}
+
+.Btn-Home {
+  color: white;
+}
+
+.Btn-demo {
+  margin: 50px
+}
+
+.Home {
+  position:fixed;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  background-size: cover;
+}
+
+.Logo {
+  width: 50%;
+  margin: -50px 1100px -50px -250px;
+}
+
+.Heading {
+  color: white;
+  text-align: center;
+}
+
+.Heading-Text {
+  margin: 0px 40px 0px 0px
+}
+
+.About {
+  text-align: center;
+  width: 50%;
+  margin: 0px 0px 0px 400px
+}
+
+.Nav-Item {
+  text-align: center;
+  margin-right: 400px;
+  justify-content: space-between;
+}
+
+.Nav-Home {
+  margin-left: 200px;
+}
+
+.Nav-About {
+  margin-right: -100px;
+}
+
+.Nav-Contact {
+  margin-left: 100px;
+}
+
+.login {
+  margin-left: -50px;
+}
+
+.Dashboard-Title {
+  color: #00c3cc;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 90px;
+  font-weight: 900;
+  margin-right: 250px;
+}
+
+.topbar {
+  width: 100%;
+  height: 50px;
+  background-color: white;
+}
+
+.topbarWrapper {
+  height: 100%;
+  padding: 0px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topRight {
+  display: flex;
+  align-items: center;
+  margin-left: 1000px;
+}
+
+.topBarIconContainer {
+  position: relative;
+  margin-left: 10px;
+}
+
+.topIconBadge {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  margin: -32px 20px 0px 10px;
+  background-color: red;
+  color: white;
+  display: flex;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+}
+
+.Dashboard-Header {
+  margin-left: 90px;
+}
+
+.container {
+  display: flex;
+}
+
+.sidebar {
+  height: calc(140vh);
+  width: 60px;
+  background-color: #707070;
+  border-top-right-radius: 40px;
+  position: sticky;
+  margin-left: -112px
+}
+
+.others {
+  flex: 4;
+}
+
+.sidebar-icon {
+  margin: 25px -15px;
+  transform: scale(1.6);
+  color: white;
+}
+
+.meetingroom-icon {
+  transform: scale(1.6);
+  color: white;
+  margin: -10px 0px 30px -15px
+}
+
+.menu-icon {
+  margin-top: 100px;
+}
+
+.exit-icon {
+  margin-top: 640px;
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.search-icon {
+  margin-left: 10px;
+}
+
+.searchbar {
+  margin: 30px 0px 0px 540px;
+  color: #047fd3;
+}
+
+.dashboard-card1 {
+  width: 200px;
+  height: 200px;
+  margin: 150px 0px 0px 100px;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.dashboard-cardtext {
+  text-align: center;
+  width: 250px;
+}
+
+.inventory {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 25px;
+}
+
+.dashboard-card2 {
+  width: 200px;
+  height: 200px;
+  margin: -200px 0px 0px 450px;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.dashboard-card3 {
+  width: 200px;
+  height: 200px;
+  margin: -200px 0px 0px 800px;
+  justify-content: space-evenly;
+}
+
+.nft-button {
+  margin-top: 10px;
+  padding: 10px 24px;
+  border-radius: 12px;
+  background-color: #707070;
+}
+
+.add-icon {
+  transform: scale(2.0);
+  margin: 0px 160px -140px
+}
+
+.profile-shape {
+  width: 150px;
+  height: 150px;
+  margin: -60px 0px 0px 1000px;
+  background: rgba(0,0,0,.3) ;
+  border: solid black;
+  background-color: white;
+  border-radius: 100px;
+}
+
+.person-icon {
+  transform: scale(5.5);
+  margin: 53px 0px 0px 60px;
+}
+
+.profile-text {
+  margin: 10px 0px 0px 635px;
+  text-align: center;
+}
+
+.username {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.favorites-icon {
+  color: red;
+}
+
+hr {
+  width: 110%;
+}
+
+.line {
+  margin-top: 60px;
+}
+
+.nft-price {
+  color: #00c3cc;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 900;
+  font-size: 30px;
+  margin-left: 100px;
+}
+
+.eth-conversion {
+  margin-left: 105px
+}
+
+.conversion-button {
+  margin: -80px 0px 0px 300px;
+}
+
+.nftgraph {
+  margin: -500px 0px 0px -750px
+}
+
+.dashboard-analysis {
+ background: rgba(0,0,0,.3) ;
+ width: 350px;
+ height: 500px;
+ margin: -1100px 0px 0px 750px;
+ border: solid black;
+ border-width: 10px;
+ background-color: white;
+ text-align: center;
+ border-radius: 30px;
+}
+
+.analysis-text {
+  font-weight: 750;
+  font-size: 40px;
+  color:#4f81bd;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.analysis-data {
+  margin-top: 20px;
+}
+
+.analysis-subheading {
+  font-weight: 600;
 }

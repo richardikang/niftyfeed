@@ -22,9 +22,9 @@ const Dashboard = () => {
                 <Search />
             </div>
             <div>
-                <Card className="profile-card">
+                <div className="profile-shape">
                     <PersonIcon className="person-icon"/>
-                </Card>
+                </div>
                 <div className="profile-text">
                     <h1 className="username">boredPanda@1</h1>
                     <p1>member since 09/2021</p1>
