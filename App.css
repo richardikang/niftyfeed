@@ -1,7 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap');
 
 .App {
+  display: flex;
+  justify-content: center;
   text-align: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .App-logo {
@@ -225,7 +229,7 @@ li {
   height: calc(140vh);
   width: 60px;
   background-color: #707070;
-  border-top-right-radius: 40px;
+  border-top-right-radius: 32px;
   position: sticky;
   margin-left: -112px
 }
@@ -235,7 +239,25 @@ li {
 }
 
 .sidebar-icon {
-  margin: 25px -15px;
+  margin: 25px -17px;
+  transform: scale(1.6);
+  color: white;
+}
+
+.inventory-icon {
+  margin: 25px -10px 0px -25px;
+  transform: scale(1.6);
+  color: white;
+}
+
+.statistics-icon {
+  margin: 50px -10px 0px -25px;
+  transform: scale(1.6);
+  color: white;
+}
+
+.widgets-icon {
+  margin: 50px -10px 0px -25px;
   transform: scale(1.6);
   color: white;
 }
@@ -243,11 +265,20 @@ li {
 .meetingroom-icon {
   transform: scale(1.6);
   color: white;
-  margin: -10px 0px 30px -15px
+  margin: 40px 0px 0px -20px
 }
 
 .menu-icon {
-  margin-top: 100px;
+  margin-bottom: -45px;
+  border-radius: 90px;
+  cursor: pointer;
+  /* display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 6px;
+  border: none;
+  vertical-align: middle; */
+  transition: box-shadow 0.4s ease;
 }
 
 .exit-icon {
@@ -331,7 +362,7 @@ li {
 
 .person-icon {
   transform: scale(5.5);
-  margin: 53px 0px 0px 60px;
+  margin: 65px 0px 0px 60px;
 }
 
 .profile-text {
@@ -361,26 +392,28 @@ hr {
   font-family: 'Open Sans', sans-serif;
   font-weight: 900;
   font-size: 30px;
-  margin-left: 100px;
+  margin-left: 235px;
+  margin-bottom: -2px;
 }
 
 .eth-conversion {
-  margin-left: 105px
+  margin-left: 240px;
+  margin-bottom: -10px;
 }
 
 .conversion-button {
-  margin: -80px 0px 0px 300px;
+  margin: 20px 0px 0px 230px;
 }
 
 .nftgraph {
-  margin: -500px 0px 0px -750px
+  margin: -490px 0px 0px -740px
 }
 
 .dashboard-analysis {
  background: rgba(0,0,0,.3) ;
  width: 350px;
  height: 500px;
- margin: -1100px 0px 0px 750px;
+ margin: -1140px 0px 0px 750px;
  border: solid black;
  border-width: 10px;
  background-color: white;
@@ -401,4 +434,110 @@ hr {
 
 .analysis-subheading {
   font-weight: 600;
+}
+
+.Tooltip {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.Tooltip:hover {
+  margin-top: -100px;
+}
+
+.menu-container {
+  margin-left: -10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-trigger {
+  border-radius: 90px;
+  cursor: pointer;
+  /* display: flex;
+  justify-content: space-between;
+  align-items: center; */
+  padding: 4px 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  border: none;
+  vertical-align: middle;
+  transition: box-shadow 0.4s ease;
+}
+
+.menu-trigger:hover {
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+}
+
+.menu-trigger span {
+  font-weight: 700;
+  vertical-align: middle;
+  font-size: 14px;
+  margin: 0 10px;
+}
+
+.menu-trigger img {
+  border-radius: 90px;
+}
+
+.menu {
+  background: #ffffff;
+  border-radius: 8px;
+  position: relative;
+  top: 72px;
+  right: 0;
+  left: 20px;
+  width: 300px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+}
+
+.menu.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  border-bottom: 1px solid #dddddd;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: #333333;
+  padding: 15px 20px;
+  display: block;
+}
+
+.modal-pop {
+  background: #fff;
+  border: 2px solid #aaa;
+  border-radius: 5px;  
+  z-index: 999;
+  max-width: 420px;
+  margin: auto;
+  padding: 1em 2em 2em;
+  position: relative;
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  background-color: #000;
+  opacity: 0.75;
 }
