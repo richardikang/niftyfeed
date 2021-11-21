@@ -1,8 +1,11 @@
 import React from 'react'
-import Tooltip from '../components/Tooltip';
-import styled from "styled-components"
+import styled from 'styled-components';
 
-import MenuIcon from '@mui/icons-material/Menu';
+import Tooltip from '../components/Tooltip';
+import Menu from './Menu-dropdown'; 
+import Modal from '../components/Inv-modal';
+import useModal from '../components/useInv-modal';
+
 import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
 import PieChartSharpIcon from '@mui/icons-material/PieChartSharp';
 import WidgetsIcon from '@mui/icons-material/Widgets';
@@ -11,26 +14,27 @@ import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
 const TooltipTarget = styled.span``;
 
 const Sidebar = () => {
+    const {toggle, visible} = useModal();
     return (
         <div className="sidebar">
             <div className="sidebarWrapper">
                 <div className="sidebarMenu">
                     <ul className="sidebarList">
                         <div className="menu-icon">
-                                    <li className="sidebarListItem">
-                                        <MenuIcon className="sidebar-icon"/>
-                                    </li>
+                            <li className="sidebarListItem">
+                                <Menu className/>
+                            </li>
                         </div>
-                        <Tooltip text="Inventory" position="right" background="FFFFFF" overflow="visible">
-                            <TooltipTarget  className="inventory-tooltip">
+                        <Tooltip text="Inventory" position="right" background="FFFFFF" className="tooltip-box">
+                            <TooltipTarget >
                                 <li className="sidebarListItem">
                                 <Inventory2OutlinedIcon className="inventory-icon"/>
                                 </li>
                             </TooltipTarget>
                         </Tooltip>
                         <div>
-                            <Tooltip text="Statistics" position="right" background="FFFFFF">
-                                <TooltipTarget  className="inventory-tooltip">
+                            <Tooltip text="Statistics" position="right" background="FFFFFF" className="tooltip-statistics">
+                                <TooltipTarget >
                                     <li className="sidebarListItem">
                                         <PieChartSharpIcon className="statistics-icon"/>
                                     </li>
@@ -38,18 +42,20 @@ const Sidebar = () => {
                             </Tooltip>
                         </div>
                         <div>
-                            <Tooltip text="Widgets" position="right" background="FFFFFF">
-                                <TooltipTarget  className="inventory-tooltip">
+                            <Tooltip text="Widgets" position="right" background="FFFFFF" className="tooltip-box">
+                                <TooltipTarget>
                                     <li className="sidebarListItem">
                                         <WidgetsIcon className="widgets-icon"/>
                                     </li>
                                 </TooltipTarget>
                             </Tooltip>
                         </div>
+                        <button onClick={toggle}>Show Modal</button>
+                        <Modal visible={visible} toggle={toggle} />
                         <div>
                             <div className="exit-icon">
-                                <Tooltip text="Logout" position="right" background="FFFFFF">
-                                    <TooltipTarget  className="inventory-tooltip">
+                                <Tooltip text="Logout" position="right" background="FFFFFF" className="tooltip-box">
+                                    <TooltipTarget >
                                         <li className="sidebarListItem">
                                             <MeetingRoomIcon className="meetingroom-icon"/>
                                         </li>
