@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { Card, CardText, Button } from 'reactstrap';
 
 import Search from '../components/Search'
@@ -8,13 +8,19 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 
 import Header from '../components/Header';
 import Topbar from '../components/Topbar';
-import Sidebar from '../components/sidebar/Sidebar';
+import Sidebar from '../components/Sidebar';
+import WalletCard from '../components/Web3server';
+import Profile from '../components/Profile';
+
 
 const Dashboard = () => {
     return (
-        <div>
+        <div className="Dashboard">
             <div className="Dashboard-Header">
                  <Header />
+            </div>
+            <div>
+                <Profile />
             </div>
             <Topbar />
             <h1 className="Dashboard-Title">Dashboard</h1>
@@ -40,6 +46,7 @@ const Dashboard = () => {
                     <Card className="dashboard-card1">
                         <CardText className="dashboard-cardtext">
                             <h1 className="inventory">Inventory</h1>
+                            <WalletCard />
                             <div>
                                 <p1>Total assets: 3</p1>
                             </div>
@@ -61,7 +68,7 @@ const Dashboard = () => {
                                 <p2>Bored Monkey</p2>
                             </div>
                             <div>
-                            <Button className="nft-button" >Find NFT</Button>
+                            <Button className="nft-button" color="info" >Find NFT</Button>
                             </div>
                         </CardText>
                     </Card>
@@ -80,7 +87,7 @@ const Dashboard = () => {
                             </div>
                         </div>
                         <div>
-                            <Button className="conversion-button">Crypto-Conversion</Button>
+                            <Button className="conversion-button" color="info">Crypto-Conversion</Button>
                         </div>
                         <div className="nftgraph">
                             <img src="/assets/images/nftgraph.png" alt="Nft Graph"/>

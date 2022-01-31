@@ -1,126 +1,107 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Card, CardText, Button } from 'reactstrap';
 
-import styled from "styled-components"
+import Search from '../components/Search'
+import AddIcon from '@mui/icons-material/Add';
+import PersonIcon from '@mui/icons-material/Person';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 import Header from '../components/Header';
-
-const Tooltip = styled.div((props) => {
-    const { top, left } = props
-    return`
-        position: absolute;
-        z-index: 10;
-        top: ${top}px;
-        left: ${left}px;
-        
-        color: white;
-        border-radius: 8px;
-        padding: 8px;
-
-        &:after {
-
-        }
-        `
-})
+import Topbar from '../components/Topbar';
+import Sidebar from '../components/Sidebar';
 
 const Demo = () => {
-    const [tooltipData, setTooltipData] = useState(null)
-
-    const handleTooltip = (e) => {
-        e.preventDefault()
-        const title = e.target.title
-        const coords = e.target.coords
-        const alt = e.target.alt
-
-        const top = coords.split(",").pop()
-        const left = coords.split(",").slice(2, 3)[0]
-
-        if (title && coords && alt) {
-            const data = {
-                title,
-                left,
-                top,
-                children: <p>{alt}</p>
-            }
-
-            setTooltipData(data)
-        }
-    }
-
     return (
-        <div className="Demo-Background">
-            <Header />
-                <div className="Demo">
-                    {tooltipData && <Tooltip {...tooltipData} />}
-
-                    <img src="/assets/images/Dashboard.png" alt="Dashboard" usemap="#image-map" />
-
-                    <map
-                        name="image-map"
-                        onMouseOver={handleTooltip}
-                        onMouseOut={() => setTooltipData(null)}
-                    >
-                     <area
-                        alt=""
-                        title="Inventory"
-                        href=""
-                        coords="3,192,53,263"
-                        shape="rect"
-                     />
-                     <area
-                        alt=" "
-                        title="User Statistics"
-                        href=""
-                        coords="51,361,1,301"
-                        shape="rect"
-                     />
-                     <area
-                        alt=""
-                        title="Widgets"
-                        href=""
-                        coords="0,397,53,454"
-                        shape="rect"
-                     />
-                     <area
-                        alt=""
-                        title="Logout"
-                        href=""
-                        coords="1,860,52,944"
-                        shape="rect"
-                     />
-                     <area
-                        alt=""
-                        title="Split view"
-                        href=""
-                        coords="1,15,54,68"
-                        shape="rect"
-                     />
-                     <area
-                        alt=""
-                        title="Track your NFT via email and/or text"
-                        href=""
-                        coords="289,331,444,371"
-                        shape="rect"
-                     />
-                     <area
-                        alt=""
-                        title="Conversion rate between the monetary value and cryptocurrency"
-                        href=""
-                        coords="371,501,587,548"
-                        shape="rect"
-                     />
-                     <area
-                        alt=""
-                        title="Add more widgets"
-                        href=""
-                        coords="477,227,556,293"
-                        shape="rect"
-                     />
-                    </map>
+        <div className="Dashboard">
+            <div className="Dashboard-Header">
+                 <Header />
+            </div>
+            <Topbar />
+            <h1 className="Dashboard-Title">Dashboard</h1>
+            <div className="searchbar">
+                <Search />
+            </div>
+            <div>
+                <div className="profile-shape">
+                    <PersonIcon className="person-icon"/>
+                </div>
+                <div className="profile-text">
+                    <h1 className="username">boredPanda@1</h1>
+                    <p1>member since 09/2021</p1>
+                    <div>
+                        <FavoriteIcon className="favorites-icon" />
+                        <p2> favorites: 4</p2>
+                    </div>
                 </div>
             </div>
-            
+            <div className="container">
+                <Sidebar />
+                <div className="others">
+                    <Card className="dashboard-card1">
+                        <CardText className="dashboard-cardtext">
+                            <h1 className="inventory">Inventory</h1>
+                            <div>
+                                <p1>Total assets: 3</p1>
+                            </div>
+                            <div>
+                                <p2>Bids: 2</p2>
+                            </div>
+                            <div>
+                                <p3>Selling: 1</p3>
+                            </div>
+                        </CardText>
+                    </Card>
+                    <Card className="dashboard-card2">
+                        <CardText className="dashboard-cardtext">
+                            <h1 className="inventory">Tracking</h1>
+                            <div>
+                                <p1>Crypto Bear</p1>
+                            </div>
+                            <div>
+                                <p2>Bored Monkey</p2>
+                            </div>
+                            <div>
+                            <Button className="nft-button" color="info" >Find NFT</Button>
+                            </div>
+                        </CardText>
+                    </Card>
+                    <Card className="dashboard-card3">
+                        <AddIcon className="add-icon"/>
+                    </Card>
+                    <div className="line">
+                         <hr />
+                    </div>
+                    <div>
+                        <h2 className="nft-price">NFT Price</h2>
+                        <div className="eth-conversion">
+                            <p2>cost per ethereum</p2>
+                            <div>
+                                <p3>1 eth = $3,500.078</p3>
+                            </div>
+                        </div>
+                        <div>
+                            <Button className="conversion-button" color="info">Crypto-Conversion</Button>
+                        </div>
+                        <div className="nftgraph">
+                            <img src="/assets/images/nftgraph.png" alt="Nft Graph"/>
+                        </div>
+                        <div className="dashboard-analysis">
+                            <h1 className="analysis-text">Analysis</h1>
+                            <div>
+                                <p1 className="analysis-subheading">percentage increase in a 12 month span</p1>
+                            </div>
+                            <li className="analysis-data">
+                                <ul>Crypto Bear: 10,100% increase</ul>
+                                <ul>Bored Monkey: 119,999,900% increase</ul>
+                                <ul>Pixel Whales: 108,999,900% increase</ul>
+                                <ul>Loot: 1,239,999,900% increase</ul> 
+                            </li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     )
 }
-       
 
 export default Demo;
