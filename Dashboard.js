@@ -1,5 +1,7 @@
-import React from 'react';
-import { Card, CardText, Button } from 'reactstrap';
+import React, { useState } from 'react';
+import { Card, CardText } from 'reactstrap';
+import { Button, Alert } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
 
 import Search from '../components/Search'
 import AddIcon from '@mui/icons-material/Add';
@@ -11,19 +13,38 @@ import Topbar from '../components/Topbar';
 import Sidebar from '../components/Sidebar';
 import WalletCard from '../components/Web3server';
 import Profile from '../components/Profile';
-
+import { useAuth } from '../contexts/AuthContext';
 
 const Dashboard = () => {
+    const [error, setError] = useState("")
+    const { currentUser, logout } = useAuth();
+    const history = useHistory();
+
+   async function handleLogout() {
+        setError('')
+
+        try {
+            await logout()
+            history.push('./login')
+        } catch {
+            setError("Failed to log out")
+        }
+    }
+
     return (
         <div className="Dashboard">
             <div className="Dashboard-Header">
                  <Header />
+                 <Button onClick={handleLogout}>
+                     Log Out
+                </Button> 
             </div>
             <div>
                 <Profile />
             </div>
             <Topbar />
             <h1 className="Dashboard-Title">Dashboard</h1>
+            {error && <Alert variant="danger">{error}</Alert>}
             <div className="searchbar">
                 <Search />
             </div>
@@ -32,7 +53,7 @@ const Dashboard = () => {
                     <PersonIcon className="person-icon"/>
                 </div>
                 <div className="profile-text">
-                    <h1 className="username">boredPanda@1</h1>
+                    <strong>Email:</strong>{currentUser.username}
                     <p1>member since 09/2021</p1>
                     <div>
                         <FavoriteIcon className="favorites-icon" />
