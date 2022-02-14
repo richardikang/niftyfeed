@@ -1,9 +1,9 @@
 import React from 'react';
-import { Button } from 'reactstrap';
-import { useHistory } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 import Header from '../components/Header';
-import Mynft from '../components/myNFT';
+import Login from '../components/Login';
  
 const Home = () => {
   const history = useHistory();
@@ -13,12 +13,14 @@ const Home = () => {
   }
 
   return (
-    <div className='Home'>
-      <div className="Heading">
-        <Header />
-        <h1 className="Heading-Text">Track And Monitor Your NFT</h1>
-            <Mynft />
-            <Button onClick={handleGoToDemo} className="Btn-demo" color="light">How It Works</Button>
+    <div className='home-wrapper'>
+      <div className='Home'>
+        <div className="Heading">
+          <Header />
+          <h1 className="Heading-Text">Track And Monitor Your NFT</h1>
+              <Button onClick={handleGoToDemo} className="Btn-demo" color="light">How It Works</Button>
+              <Login/>
+        </div>
       </div>
     </div>
   )

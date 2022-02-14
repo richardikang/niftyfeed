@@ -3,31 +3,32 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Redirect,
   } from "react-router-dom";
 
-import About from './About';
-import Contact from './Contact';
-import Home from './Home';
-import Header from './Header';
+import About from '../pages/About';
+import Contact from '../pages/Contact';
+import Home from '../pages/Home';
+import Demo from '../pages/Demo';
+import Account from '../pages/Accountwizard';
+import Registration from './Registration';
+import Dashboard from '../pages/Dashboard';
+import PrivateRoute from './PrivateRoute';
+import ForgotPassword from './ForgotPassword';
 
 const Main = () => {
     return (
-        <div className="Home">
-            <Header />
+        <div>
             <Router>
                 <>
                     <Switch>
-                    <Route path="/about">
-                        <About />
-                    </Route>
-                    <Route path="/contact">
-                        <Contact />
-                    </Route>
-                    <Route path="/">
-                        <Home />
-                    </Route>
-                        <Redirect to='/home' />
+                        <Route path="/registration" component={Registration} />
+                        <PrivateRoute exact path="/dashboard" component={Dashboard} />
+                        <Route exact path="/forgotpassword" component={ForgotPassword} />
+                        <Route exact path="/about" component={About} />
+                        <Route exact path="/contact" component={Contact} />
+                        <Route exact path="/demo" component={Demo} />
+                        <Route exact path="/Account" component={Account} />
+                        <Route path="/" component={Home} />
                     </Switch>
                 </>
             </Router>
