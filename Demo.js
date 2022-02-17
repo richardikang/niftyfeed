@@ -10,7 +10,7 @@ import Header from '../components/Header';
 import Topbar from '../components/Topbar';
 import Sidebar from '../components/Sidebar';
 
-const Demo = () => {
+const Demo = ({props}) => {
     return (
         <div className="Dashboard">
             <div className="Dashboard-Header">
