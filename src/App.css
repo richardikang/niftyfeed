@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap");
+@import url("https://cdn.syncfusion.com/ej2/material.css");
 
 .App {
   display: flex;
@@ -61,7 +62,7 @@ body {
   justify-content: center;
   align-items: center;
   opacity: 0;
-  transition: .3s ease;
+  transition: 0.3s ease;
 }
 
 /* .slide h1, .slide h2 {
@@ -93,7 +94,7 @@ li {
   list-style-type: none;
 }
 .RegistrationBtn {
-  margin: 0px 30px 25px 40px
+  margin: 0px 30px 25px 40px;
 }
 
 .demo-header {
@@ -121,7 +122,7 @@ li {
 }
 
 .Home {
-  position:fixed;
+  position: fixed;
   top: 0;
   height: 100%;
   width: 100%;
@@ -140,13 +141,13 @@ li {
 }
 
 .Heading-Text {
-  margin: -150px 0px 0px -700px
+  margin: -150px 0px 0px -700px;
 }
 
 .About {
   text-align: center;
   width: 50%;
-  margin: 0px 0px 0px 400px
+  margin: 0px 0px 0px 400px;
 }
 
 .Nav-Item {
@@ -182,7 +183,7 @@ li {
 .Dashboard-Title {
   color: #00c3cc;
   text-align: center;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 90px;
   font-weight: 900;
   margin-right: 250px;
@@ -243,7 +244,7 @@ li {
   background-color: #5dfff7f5;
   border-top-right-radius: 32px;
   position: sticky;
-  margin-left: -112px
+  margin-left: -112px;
 }
 
 .others {
@@ -277,7 +278,7 @@ li {
 .meetingroom-icon {
   transform: scale(1.6);
   color: white;
-  margin: 40px 0px 0px -20px
+  margin: 40px 0px 0px -20px;
 }
 
 .menu-icon {
@@ -358,15 +359,15 @@ li {
 }
 
 .add-icon {
-  transform: scale(2.0);
-  margin: 0px 160px -140px
+  transform: scale(2);
+  margin: 0px 160px -140px;
 }
 
 .profile-shape {
   width: 150px;
   height: 150px;
   margin: -60px 0px 0px 1000px;
-  background: rgba(0,0,0,.3) ;
+  background: rgba(0, 0, 0, 0.3);
   border: solid black;
   background-color: white;
   border-radius: 100px;
@@ -401,7 +402,7 @@ hr {
 
 .nft-price {
   color: #00c3cc;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 900;
   font-size: 30px;
   margin-left: 235px;
@@ -418,26 +419,26 @@ hr {
 }
 
 .nftgraph {
-  margin: -490px 0px 0px -740px
+  margin: -490px 0px 0px -740px;
 }
 
 .dashboard-analysis {
- background: rgba(0,0,0,.3) ;
- width: 350px;
- height: 500px;
- margin: -1140px 0px 0px 750px;
- border: solid black;
- border-width: 10px;
- background-color: white;
- text-align: center;
- border-radius: 30px;
+  background: rgba(0, 0, 0, 0.3);
+  width: 350px;
+  height: 500px;
+  margin: -1140px 0px 0px 750px;
+  border: solid black;
+  border-width: 10px;
+  background-color: white;
+  text-align: center;
+  border-radius: 30px;
 }
 
 .analysis-text {
   font-weight: 750;
   font-size: 40px;
-  color:#4f81bd;
-  font-family: 'Open Sans', sans-serif;
+  color: #4f81bd;
+  font-family: "Open Sans", sans-serif;
 }
 
 .analysis-data {
@@ -535,7 +536,7 @@ hr {
 
 .input-username {
   margin-left: 10px;
-  width:250px;
+  width: 250px;
 }
 
 .input-password {
@@ -555,7 +556,7 @@ hr {
 }
 
 .submit {
-  margin: 20px 10px 0px 0px
+  margin: 20px 10px 0px 0px;
 }
 
 .form-name {
@@ -565,7 +566,7 @@ hr {
 
 .registration {
   text-align: center;
-  margin: 0px 200px 300px 0px
+  margin: 0px 200px 300px 0px;
 }
 
 .new-account {
@@ -590,7 +591,7 @@ hr {
 
 .login-card {
   width: 25%;
-  margin: -250px 0px 0px 850px
+  margin: -250px 0px 0px 850px;
 }
 
 .logreg-div {
@@ -603,13 +604,13 @@ hr {
 
 .registration-form {
   min-height: 0px;
-  background-color:cornflowerblue;
+  background-color: cornflowerblue;
   background-size: cover;
   top: 0;
   height: 100%;
   width: 100%;
   position: fixed;
-  display: flex; 
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
@@ -618,11 +619,11 @@ hr {
   margin-top: 6px;
   background-color: rgb(255, 182, 113);
   color: white;
-  border-radius: 0.25rem; 
+  border-radius: 0.25rem;
   padding-left: 2rem;
   padding-right: 2rem;
   padding-top: 2px;
-  padding-bottom: 1.5rem; 
+  padding-bottom: 1.5rem;
   width: 100%;
 }
 
@@ -636,8 +637,8 @@ hr {
   width: 100%;
   margin-left: 500px;
   margin-top: 80px;
-  border-radius: .5rem;
-  box-shadow: 50px 50px -12px rgb(0 0 0/0.25); 
+  border-radius: 0.5rem;
+  box-shadow: 50px 50px -12px rgb(0 0 0/0.25);
   background-color: white;
   overflow: hidden;
   z-index: 10;
@@ -670,7 +671,7 @@ hr {
 }
 
 .personicon {
-  transform: scale(5.0);
+  transform: scale(5);
   margin-left: 200px;
   margin-top: 50px;
 }
@@ -720,5 +721,3 @@ hr {
   justify-content: space-between;
   white-space: nowrap;
 }
-
-@import url("https://cdn.syncfusion.com/ej2/material.css");
