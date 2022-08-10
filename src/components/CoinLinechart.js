@@ -21,44 +21,44 @@ ChartJS.register(
   Legend
 );
 
-const CoinLinechart = () => {
-  const [chart, setChart] = useState({});
-  var baseUrl = "https://api.coinranking.com/v2/coins";
-  var apiKey = "coinranking60de9c4c0eb75e6a06ae8eb76e733ba9c3d3def5f5358447";
+const BASE_URL =
+  "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false";
 
+function useFetch({ url, method = "GET", headers = {} }) {
+  const [{ data, loading, error }, setData] = useState({
+    data: null,
+    loading: true,
+    error: null,
+  });
   useEffect(() => {
-    const fetchCoin = async () => {
-      await fetch(`${baseUrl}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          "x-access-token": `${apiKey}`,
-          "Access-Control-Allow-Origin": "*",
-        },
-      })
-        .then((response) => {
-          if (response.ok) {
-            response.json().then((json) => {
-              console.log(json.data);
-              setChart(json.data);
-            });
-          }
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    };
-    fetchCoin();
-  }, [baseUrl, apiKey]);
+    fetch(url, { method, headers })
+      .then((resp) => resp.json())
+      .then((data) => setData({ data, loading: false }))
+      .catch((error) => setData({ error, loading: false }));
+  }, [headers, method, url]);
+  return { data, loading, error };
+}
+
+const CoinLinechart = () => {
+  const {
+    data: chart,
+    loading,
+    error,
+  } = useFetch({
+    url: BASE_URL,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
 
   console.log("chart", chart);
 
-  var data = {
-    labels: chart.coins.map((data) => data.coin.name),
+  const data = {
+    labels: chart ? chart.coins.map((data) => data.name) : [],
     datasets: [
       {
-        label: `${chart.coins.length} Coins Available`,
-        data: chart.coins.map((data) => data.coin.price),
+        label: `${chart ? chart.coins.length : "--"} Coins Available`,
+        data: chart ? chart.coins.map((data) => data.current_price) : [],
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
           "rgba(54, 162, 235, 0.2)",
