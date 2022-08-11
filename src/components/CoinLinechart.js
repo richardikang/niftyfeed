@@ -54,11 +54,11 @@ const CoinLinechart = () => {
   console.log("chart", chart);
 
   const data = {
-    labels: chart ? chart.coins.map((data) => data.name) : [],
+    labels: chart ? chart.map((data) => data.name) : [],
     datasets: [
       {
-        label: `${chart ? chart.coins.length : "--"} Coins Available`,
-        data: chart ? chart.coins.map((data) => data.current_price) : [],
+        label: `${chart ? chart.length : "--"} Coins Available`,
+        data: chart ? chart.map((data) => data.current_price) : [],
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
           "rgba(54, 162, 235, 0.2)",
