@@ -5,23 +5,28 @@ import Coin from "./Coin";
 import Pagination from "./Pagination";
 
 const CoinMarket = () => {
-  const [currentpage, setcurrentPage] = useState(0);
-  const [item, setItem] = useState([]);
+  const [currentPageIdx, setCurrentPageIdx] = useState(0);
+  const [items, setItems] = useState([]);
 
+  // when we change currentPageIdx, fetch that page's items
   useEffect(() => {
     fetch(
-      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
+      `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=${currentPageIdx+1}&sparkline=false`
     )
       .then((r) => r.json())
-      .then((data) => setItem(data));
-  }, [currentpage]);
+      .then((data) => {
+      // confirm that your data looks like the items you want
+        console.log("🕵️‍♀️ data", data)
+        setItems(data)
+      });
+  }, [currentPageIdx]);
 
   return (
     <>
       <CoinMarketStyle>
         <h1 className="MarketHeader">Markets</h1>
         <section className="">
-          {item.map((coin) => (
+          {items.map((coin) => (
             <Coin key={coin.id} coin={coin} />
           ))}
         </section>
