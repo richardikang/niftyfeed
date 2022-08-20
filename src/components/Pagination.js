@@ -1,37 +1,32 @@
 import React from "react";
-import classNames from "classnames";
 import styled from "styled-components";
 
-const range = (start, end) => {
-  return [...Array(end).keys()].map((el) => el + start);
-};
+const Pagination = ({
+  totalPosts,
+  postsPerPage,
+  setCurrentPage,
+  currentPage,
+}) => {
+  let pages = [];
 
-const PaginationItem = ({ page, currentPage, onPageChange }) => {
-  const liClasses = classNames({
-    "page-item": true,
-    active: page === currentPage,
-  });
-  return (
-    <li className={liClasses} onClick={() => onPageChange(page)}>
-      <span className="page-link">{page}</span>
-    </li>
-  );
-};
+  for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
+    pages.push(i);
+  }
 
-const Pagination = ({ currentPage, total, limit, onPageChange }) => {
-  const pagesCount = Math.ceil(total / limit);
-  const pages = range(1, pagesCount);
   return (
     <Paginationstyle>
       <ul>
-        {pages.map((page) => (
-          <PaginationItem
-            page={page}
-            key={page}
-            currentPage={currentPage}
-            onPageChange={onPageChange}
-          />
-        ))}
+        {pages.map((page, index) => {
+          return (
+            <button
+              key={index}
+              onClick={() => setCurrentPage(page)}
+              className={page == currentPage ? "active" : ""}
+            >
+              {page}
+            </button>
+          );
+        })}
       </ul>
     </Paginationstyle>
   );
