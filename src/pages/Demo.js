@@ -89,8 +89,9 @@ const Demo = () => {
 const Demostyle = styled.div`
   .container {
     display: grid;
-    grid-template-columns: 8rem auto 25rem;
+    grid-template-columns: 10.2rem auto 25rem;
     margin-top: 2em;
+    padding-bottom: 0.5em;
   }
 
   .middle {
