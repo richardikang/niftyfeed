@@ -1,91 +1,68 @@
 import React from "react";
-import styled from "styled-components";
+import PropTypes from "prop-types";
+import Box from "@mui/material/Box";
+import IconButton from "@mui/material/IconButton";
+import FirstPageIcon from "@mui/icons-material/FirstPage";
+import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
+import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
+import LastPageIcon from "@mui/icons-material/LastPage";
 
-const Pagination = ({
-  totalPosts,
-  postsPerPage,
-  setCurrentPage,
-  currentPage,
-}) => {
-  let pages = [];
+const Pagination = ({ count, page, rowsPerPage, onPageChange }) => {
+  const handleFirstPageButtonClick = (event) => {
+    onPageChange(event, 0);
+  };
 
-  for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
-    pages.push(i);
-  }
+  const handleBackButtonClick = (event) => {
+    onPageChange(event, page - 1);
+  };
+
+  const handleNextButtonClick = (event) => {
+    onPageChange(event, page + 1);
+  };
+
+  const handleLastPageButtonClick = (event) => {
+    onPageChange(event, Math.max(0, Math.ceil(count / rowsPerPage) - 1));
+  };
 
   return (
-    <Paginationstyle>
-      <ul>
-        {pages.map((page, index) => {
-          return (
-            <button
-              key={index}
-              onClick={() => setCurrentPage(page)}
-              className={page == currentPage ? "active" : ""}
-            >
-              {page}
-            </button>
-          );
-        })}
-      </ul>
-    </Paginationstyle>
+    <Box sx={{ flexShrink: 0, mr: -10 }}>
+      <IconButton
+        onClick={handleFirstPageButtonClick}
+        disabled={page === 0}
+        aria-label="first page"
+      >
+        <FirstPageIcon />
+      </IconButton>
+      <IconButton
+        onClick={handleBackButtonClick}
+        disabled={page === 0}
+        aria-label="previous page"
+      >
+        <KeyboardArrowLeft />
+      </IconButton>
+      <IconButton
+        onClick={handleNextButtonClick}
+        disabled={page >= Math.ceil(count / rowsPerPage) - 1}
+        aria-label="next page"
+      >
+        <KeyboardArrowRight />
+      </IconButton>
+      <IconButton
+        onClick={handleLastPageButtonClick}
+        disabled={page >= Math.ceil(count / rowsPerPage) - 1}
+        aria-label="last page"
+      >
+        <LastPageIcon />
+      </IconButton>
+    </Box>
   );
 };
 
-const Paginationstyle = styled.div`
-  display: inline-block;
-  padding-left: 0;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 0.25rem;
-
-  .page-item {
-    display: inline;
-  }
-  .page-item:first-child .page-link {
-    margin-left: 0;
-    border-bottom-left-radius: 0.25rem;
-    border-top-left-radius: 0.25rem;
-  }
-  .page-item:last-child .page-link {
-    border-bottom-right-radius: 0.25rem;
-    border-top-right-radius: 0.25rem;
-  }
-  .page-item.active .page-link,
-  .page-item.active .page-link:focus,
-  .page-item.active .page-link:hover {
-    z-index: 2;
-    color: #fff;
-    cursor: default;
-    background-color: #5cb85c;
-    border-color: #5cb85c;
-  }
-  .page-item.disabled .page-link,
-  .page-item.disabled .page-link:focus,
-  .page-item.disabled .page-link:hover {
-    color: #818a91;
-    pointer-events: none;
-    cursor: not-allowed;
-    background-color: #fff;
-    border-color: #ddd;
-  }
-  .page-link {
-    position: relative;
-    float: left;
-    padding: 0.5rem 0.75rem;
-    margin-left: -1px;
-    color: #5cb85c;
-    text-decoration: none;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    cursor: pointer;
-  }
-  .page-link:focus,
-  .page-link:hover {
-    color: #3d8b3d;
-    background-color: #eceeef;
-    border-color: #ddd;
-  }
-`;
+Pagination.propTypes = {
+  count: PropTypes.number.isRequired,
+  onPageChange: PropTypes.func.isRequired,
+  page: PropTypes.number.isRequired,
+  rowsPerPage: PropTypes.number.isRequired,
+};
 
 export default Pagination;

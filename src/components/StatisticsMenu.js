@@ -12,13 +12,10 @@ const StatisticsMenu = () => {
       <div className={open ? "sidebar-item open" : "sidebar-item"}>
         <div className="sidebar-item">
           <li className="sidebarListItem">
-            <div className="icon">
+            <div className="icon" onClick={() => setOpen(!open)}>
               <PieChartSharpIcon />
               <p1>Statistics</p1>
-              <KeyboardArrowDownIcon
-                className="arrow"
-                onClick={() => setOpen(!open)}
-              />
+              <KeyboardArrowDownIcon className="arrow" />
             </div>
           </li>
           <div className="sidebar-content">
@@ -35,7 +32,6 @@ const StatisticsMenu = () => {
 const StatisticsStyle = styled.div`
   .arrow {
     margin-top: 0.5em;
-    cursor: pointer;
     transition: transform 0.3;
     display: flex;
     margin-left: 1.3em;
@@ -63,6 +59,7 @@ const StatisticsStyle = styled.div`
     display: inline-flex;
     gap: 0.3em;
     margin-right: auto;
+    cursor: pointer;
   }
 
   .sidebarListItem {

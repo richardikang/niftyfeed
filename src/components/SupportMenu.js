@@ -32,6 +32,7 @@ const SupportStyle = styled.div`
     display: inline-flex;
     gap: 0.3em;
     margin-right: auto;
+    cursor: pointer;
   }
 
   .sidebarListItem {

@@ -1,40 +1,83 @@
-import React from 'react';
-import './Coin.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
-const Coin = ({
-  name,
-  price,
-  symbol,
-  marketcap,
-  volume,
-  image,
-  priceChange
-}) => {
+import TrendingUpIcon from "@mui/icons-material/TrendingUp";
+import TrendingDownIcon from "@mui/icons-material/TrendingDown";
+
+import { currencyFormat } from "../utils";
+
+const Coin = ({ coin }) => {
   return (
-    <div className='coin-container'>
-      <div className='coin-row'>
-        <div className='coin'>
-          <img src={image} alt='crypto' />
-          <h1>{name}</h1>
-          <p className='coin-symbol'>{symbol}</p>
+    <Coinstyle>
+      <Link to={`/coin/${coin.id}`}>
+        <div className="container">
+          <div>
+            <div className="wrapper">
+              <img src={coin.image} alt={coin.name} />
+              <p>{coin.name}</p>
+              <span className="symbol">({coin.symbol})</span>
+            </div>
+          </div>
+          <span>${coin.current_price}</span>
+          <span
+            className={`${
+              coin.price_change_percentage_24h < 0 ? "up" : "down"
+            }`}
+          >
+            {coin.price_change_percentage_24h < 0 ? (
+              <TrendingUpIcon />
+            ) : (
+              <TrendingDownIcon />
+            )}
+            {coin.price_change_percentage_24h}%
+          </span>
+          <div>
+            <span>{currencyFormat(coin.market_cap)}</span>
+          </div>
         </div>
-        <div className='coin-data'>
-          <p className='coin-price'>${price}</p>
-          <p className='coin-volume'>${volume.toLocaleString()}</p>
-
-          {priceChange < 0 ? (
-            <p className='coin-percent red'>{priceChange.toFixed(2)}%</p>
-          ) : (
-            <p className='coin-percent green'>{priceChange.toFixed(2)}%</p>
-          )}
-
-          <p className='coin-marketcap'>
-            Mkt Cap: ${marketcap.toLocaleString()}
-          </p>
-        </div>
-      </div>
-    </div>
+      </Link>
+    </Coinstyle>
   );
 };
+const Coinstyle = styled.div`
+  border-radius: 5px;
+  border-color: gray;
+  border-width: 10px;
+
+  :hover {
+    background-color: lightgray;
+  }
+
+  .container {
+    /* display: grid;
+    grid-template-columns: 20rem 15rem 18rem 16rem;
+    grid-template-rows: 5rem; */
+  }
+
+  img {
+    width: 15%;
+  }
+
+  .down {
+    color: red;
+    display: inline-block;
+    justify-content: space-between;
+    gap: 0.5em;
+  }
+
+  .up {
+    color: green;
+  }
+
+  .wrapper {
+    display: inline-flex;
+    gap: 0.8rem;
+  }
+
+  .symbol {
+    font-size: 15px;
+  }
+`;
 
 export default Coin;

@@ -10,7 +10,7 @@ const NFT = ({ user }) => {
     getNFTBalances({
       params: {
         chain: "eth",
-        address: user.get("ethaddress"),
+        address: user.get("ethAddress"),
       },
     });
   }, []);
@@ -20,8 +20,10 @@ const NFT = ({ user }) => {
         <Card>
           {data &&
             data.result.map((nft) => (
-              <div key={nft.token_url}>
-                {nft.image && <Image src={nft.image} />}
+              <div key={nft.token_uri}>
+                {nft.image && <Image src={nft.image} className="image" />}
+                <p className="name">{nft.name}</p>
+                <p2>{nft.token_uri}</p2>
               </div>
             ))}
         </Card>
@@ -31,12 +33,18 @@ const NFT = ({ user }) => {
 };
 
 const NFTStyle = styled.div`
-  height: 50%;
-  width: 50%;
+  height: 20%;
+  width: 20%;
 
-  Card {
-    height: 20px;
-    width: 20px;
+  .image {
+    width: 15em;
+  }
+
+  .name {
+    border-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `;
 

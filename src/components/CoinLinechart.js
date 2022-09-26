@@ -57,7 +57,7 @@ const CoinLinechart = () => {
     labels: chart ? chart.map((data) => data.name) : [],
     datasets: [
       {
-        label: `${chart ? chart.length : "--"} Coins Available`,
+        label: "Current Price",
         data: chart ? chart.map((data) => data.current_price) : [],
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
@@ -68,7 +68,7 @@ const CoinLinechart = () => {
           "rgba(255, 159, 64, 0.2)",
         ],
         borderColor: [
-          "rgba(255, 99, 132, 1)",
+          "#fff600",
           "rgba(54, 162, 235, 1)",
           "rgba(255, 206, 86, 1)",
           "rgba(75, 192, 192, 1)",
